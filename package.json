@@ -1,0 +1,33 @@
+{
+  "name": "ThreeDtest",
+  "version": "x",
+  "author": "Keith Showalter",
+  "description": "ThreeDtest",
+  "dependencies": {
+    "underscore": "latest",
+    "moment": "latest",
+    "jquery": "latest",
+    "brfs": "latest",
+    "three": "latest",
+    "math": "latest"
+  },
+  "devDependencies": {
+    "babelify": "~6.1.3"
+  },
+  "jshintConfig": {
+    "node": true,
+    "browser": true,
+    "esnext": true,
+
+    "funcscope"     : true,
+    "sub"           : true,
+
+    "globals": {
+        "g": true,
+        "$": true,
+        "_": true,
+        "moment": true,
+        "math": true
+    }
+  }
+}
