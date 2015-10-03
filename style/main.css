@@ -1,0 +1,51 @@
+body {
+	color: #878787;
+	font-family:Monospace;
+	font-size:13px;
+	text-align:center;
+
+	background-color: #000000;
+}
+
+
+
+a {
+  text-decoration: none;
+
+}
+
+
+
+
+table
+{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+body {
+  /*
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background: #DFDFDF;
+  */
+  font-family: sans-serif;
+
+  background: #7885ac;
+}
+
+
+/*
+http://stackoverflow.com/questions/4918018/eliminate-padding-margin-around-pics-in-td-elements
+Finally, I add this line, which removes that stupid spacing which appears all the time, the one that isn't padding, margin or anything.
+*/
+table, tr, td, th, tbody, thead{vertical-align:baseline}
+
+h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
+
+th, td {
+  text-align: left;
+}
+
+img { border: 0; }

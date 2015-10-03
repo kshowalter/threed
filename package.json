@@ -1,33 +1,33 @@
 {
-  "name": "ThreeDtest",
-  "version": "x",
+  "name": "FOS",
+  "version": "",
   "author": "Keith Showalter",
-  "description": "ThreeDtest",
+  "description": "Fortress of solitude simulator",
   "dependencies": {
-    "underscore": "latest",
+    "lodash": "latest",
     "moment": "latest",
     "jquery": "latest",
     "brfs": "latest",
     "three": "latest",
-    "math": "latest"
-  },
-  "devDependencies": {
-    "babelify": "~6.1.3"
+    "math": "latest",
+    "seedrandom": "latest"
   },
   "jshintConfig": {
     "node": true,
     "browser": true,
     "esnext": true,
-
-    "funcscope"     : true,
-    "sub"           : true,
-
+    "funcscope": true,
+    "sub": true,
     "globals": {
-        "g": true,
-        "$": true,
-        "_": true,
-        "moment": true,
-        "math": true
+      "g": true,
+      "$": true,
+      "_": true,
+      "moment": true,
+      "math": true
     }
+  },
+  "devDependencies": {
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
   }
 }

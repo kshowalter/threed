@@ -1,30 +1,48 @@
-var t = THREE;
+window._ = require('lodash');
+var seedrandom = require('seedrandom');
+//var t = THREE;
+
+
+
+var g = {};
+window.g = g;
 
 var camera_control = require('./module/camera_control');
 //var FirstPersonControls = require('./modules/FirstPersonControls');
 //THREE.FirstPersonControls = FirstPersonControls;
 
-var Agent = require('./module/Agent');
+var Avatar = require('./module/Avatar');
+//var Model = require('./module/Model');
+var Cycle = require('./module/Cycle');
+
+var Ship  = require('./module/Ship');
 var World = require('./module/World');
-var c = require('./module/classes');
-var Cycle = c.Cycle;
+var Asteroid  = require('./module/Asteroid');
+
 
 window.world = World();
 
-world.agents = {};
-world.cameras = {};
-world.camera_cycle = Cycle();
+world.point = {};
+world.point.origin = new THREE.Vector3( 0, 0, 0 );
 
-world.controls = require('./module/controls.js');
-world.controls();
+world.dice = seedrandom('phelow');
+console.log( world.dice() );
 
-var g = {};
-window.g = g;
+
+
+
 
 var scene, camera, renderer, controls;
 var geometry, material, mesh;
 
-var render;
+
+//var test_model = Model();
+//console.log(test_model);
+
+
+
+
+console.log('Welcome to the World ', world);
 
 init();
 render();
@@ -33,25 +51,53 @@ function init() {
 
   scene = new THREE.Scene();
 
-  world.point = {};
-  world.point.origin = new THREE.Vector3( 0, 0, 0 );
 
-  world.cameras.camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-  world.cameras.camera_observer.position.y = 20;
-  world.cameras.camera_observer.lookAt(world.point.origin);
-  world.camera_active = 'camera_observer';
-  world.camera_cycle.append(world.cameras.camera_observer);
+
+
+  ship = Ship();
+  scene.add(ship.model);
+  world.avatars.add( 'ship', Avatar(ship.model) );
+
+
+
+
+
+
+  camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+  camera_observer.position.y = 20;
+  camera_observer.lookAt(world.point.origin);
+  world.cameras.add('observer', camera_observer);
+
+  var pointerOne = new THREE.PointLight(0xffffff);
+  pointerOne.position.set(100,90,130);
+  scene.add( pointerOne );
+  pointerOne = new THREE.PointLight(0xffffff);
+  pointerOne.position.set(-100,-90,-130);
+  scene.add( pointerOne );
+
+
+
+
+  _.range(10).forEach(function(){
+    var asteroid = Asteroid();
+
+    asteroid.position.x = -200 + Math.ceil( world.dice() * 400 );
+    asteroid.position.y = -200 + Math.ceil( world.dice() * 400 );
+    asteroid.position.z = -200 + Math.ceil( world.dice() * 400 );
+
+    scene.add( asteroid );
+
+  });
+
+
+  /*
+
 
 
 
   var light = new THREE.AmbientLight( 0x404040 ); // soft white light
   scene.add( light );
 
-  var pointerOne = new THREE.PointLight(0xffffff);
-  pointerOne.position.set(100,90,130);
-  //pointerOne.position.set(0,0,130);
-
-  scene.add( pointerOne );
 
 
   var geometry= new THREE.BoxGeometry( 1, 1, 1 );
@@ -128,8 +174,6 @@ function init() {
 
 
 
-  renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth, window.innerHeight );
 
 
   //camera.rotation.order = "YXZ"; // CHANGED
@@ -141,9 +185,9 @@ function init() {
 	//controls.lookSpeed = 0.125;
 	//controls.lookVertical = true;
 
-  var cam = Agent(camera);
+  var cam = Actor(camera);
   cam.name = 'eye';
-  var avi = Agent(cube);
+  var avi = Actor(cube);
   avi.name = 'eye';
 
   world.agents['avatar'] = avi;
@@ -152,6 +196,9 @@ function init() {
 
   world.camera_cycle.next();
 
+  */
+  renderer = new THREE.WebGLRenderer();
+  renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
 
 }
@@ -160,11 +207,8 @@ function render() {
 
   requestAnimationFrame( render );
 
+  world.avatars.get().update();
 
-  for( var agent_name in world.agents ){
-    world.agents[agent_name].update();
-  }
-
-  renderer.render( scene, world.camera_cycle.get() );
+  renderer.render( scene, world.cameras.get() );
 
 }

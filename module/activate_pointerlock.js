@@ -54,7 +54,7 @@ module.exports = function(){
       // Ask the browser to lock the pointer
       element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
 
-      if ( /Firefox/i.test( navigator.userAgent ) ) {
+      if ( /Firefox/i.test( navigator.userActor ) ) {
 
         var fullscreenchange = function ( event ) {
 
