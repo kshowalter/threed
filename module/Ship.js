@@ -1,10 +1,31 @@
+
+
  var Ship = function(){
   var ship = {};
 
+  var dim = {
+    l1: 10,
+    w1: 5,
+    h1: 5,
+  };
 
-  var cube_geometry = new THREE.CubeGeometry( 10, 5, 5 );
+  var hull_block1 = new THREE.CubeGeometry( 10, 5, 5 );
+  var hull_block2 = new THREE.CubeGeometry( 15, 10, 1 )
+    //hull_block2.center(10,5,5);
 
+  var strut5 = new THREE.CubeGeometry(5, 0.5, 0.5);
+  var strut10 = new THREE.CubeGeometry(10, 0.5, 0.5);
 
+  var hull = union(
+    strut10.clone().translate(0, 2.5-0.25, 2.5-0.25),
+    strut10.clone().translate(0, 2.5-0.25, -2.5-0.25),
+    strut10.clone().translate(0, -2.5-0.25, 2.5-0.25),
+    strut10.clone().translate(0, -2.5-0.25, -2.5-0.25),
+    strut5.clone().translate((dim.l1-0.5)/2, 0,  (dim.w1-0.5)/2).rotateZ(rads(90)),
+    strut5.clone().translate((dim.l1-0.5)/2, 0, -(dim.w1-0.5)/2).rotateZ(rads(90)),
+    strut5.clone().translate((dim.l1-0.5)/2,  (dim.w1-0.5)/2, 0).rotateY(rads(90)),
+    strut5.clone().translate((dim.l1-0.5)/2, -(dim.w1-0.5)/2, 0).rotateY(rads(90))
+  );
   //var sphere_geometry = new THREE.SphereGeometry( 10, 16, 16 );
   //sphere_geometry.possition.x = 5;
 
@@ -22,7 +43,7 @@
 
 
 
-  var ship_model = new THREE.Mesh( cube_geometry, material );
+  var ship_model = new THREE.Mesh( hull, material );
 
 
 

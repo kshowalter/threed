@@ -2,6 +2,7 @@ window._ = require('lodash');
 var seedrandom = require('seedrandom');
 //var t = THREE;
 
+window.perm = sessionStorage;
 
 
 var g = {};
@@ -18,6 +19,11 @@ var Cycle = require('./module/Cycle');
 var Ship  = require('./module/Ship');
 var World = require('./module/World');
 var Asteroid  = require('./module/Asteroid');
+var csg_k  = require('./module/csg_k');
+
+window.union = csg_k.union;
+window.subtract = csg_k.subtract;
+window.intersect = csg_k.intersect;
 
 
 window.world = World();
@@ -39,8 +45,7 @@ var geometry, material, mesh;
 //var test_model = Model();
 //console.log(test_model);
 
-
-
+window.rads = function(degrees){ return degrees*Math.PI*180;};
 
 console.log('Welcome to the World ', world);
 
