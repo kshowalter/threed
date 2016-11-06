@@ -49,6 +49,12 @@ window.rads = function(degrees){ return degrees*Math.PI*180;};
 
 console.log('Welcome to the World ', world);
 
+setInterval(function(){
+  world.do.save();
+}, 1000);
+
+
+
 init();
 render();
 
@@ -62,7 +68,6 @@ function init() {
   ship = Ship();
   scene.add(ship.model);
   world.avatars.add( 'ship', Avatar(ship.model) );
-
 
 
 
@@ -83,7 +88,7 @@ function init() {
 
 
 
-  _.range(10).forEach(function(){
+  _.range(50).forEach(function(){
     var asteroid = Asteroid();
 
     asteroid.position.x = -200 + Math.ceil( world.dice() * 400 );
