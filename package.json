@@ -1,10 +1,11 @@
 {
-  "name": "FOS",
-  "version": "",
+  "name": "Three(js)D",
   "author": "Keith Showalter",
-  "description": "Fortress of solitude simulator",
+  "version": "0.1.0",
+  "main": "server/server.js",
+  "description": "Test of three.js",
   "scripts": {
-    "nodemon": "nodemon server.js",
+    "serve": "nodemon server/server.js",
     "webpack_serve": "webpack-dev-server --content-base public/ --inline --hot -d",
     "webpack": "webpack --progress --colors --watch -d",
     "watchify": "watchify main.js -o index.js -d -v",
@@ -18,7 +19,40 @@
     "brfs": "latest",
     "three": "latest",
     "math": "latest",
-    "seedrandom": "latest"
+    "seedrandom": "latest",
+
+    "chance": "latest",
+    "chart_maker": "git+https://github.com/kshowalter/chart_maker.git",
+    "express": "latest",
+    "freezer-js": "latest",
+    "hash_router": "https://github.com/kshowalter/hash_router",
+    "lodash": "^4.11.2",
+    "lowdb": "latest",
+    "math": "latest",
+    "mkdrawing": "git+https://github.com/kshowalter/mkDrawing.git",
+    "moment": "latest",
+    "notification-logger": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "redux": "latest",
+    "redux-logger": "latest",
+    "redux-thunk": "latest",
+    "simple_indexer": "git+https://github.com/kshowalter/simple_indexer.git",
+    "socket.io": "latest",
+    "socket.io-client": "latest",
+    "specdom": "git+https://github.com/kshowalter/specdom.git",
+    "specdom_helper": "git+https://github.com/kshowalter/specDOM_helper.git",
+    "specdom_to_sgml": "git+https://github.com/kshowalter/specDOM_to_SGML.git",
+    "svgize": "git+https://github.com/kshowalter/svgize.git"
+  },
+  "devDependencies": {
+    "babel-core": "6.1.21",
+    "babel-eslint": "latest",
+    "babel-loader": "latest",
+    "babel-preset-es2015": "latest",
+    "eslint": "latest",
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
   },
   "jshintConfig": {
     "node": true,
@@ -33,9 +67,5 @@
       "moment": true,
       "math": true
     }
-  },
-  "devDependencies": {
-    "webpack": "latest",
-    "webpack-dev-server": "latest"
   }
 }
