@@ -29,9 +29,9 @@ var db_collections = {
   users: []
 };
 
-var db = require('./server/db')('db', db_collections);
+var db = require('./db')('db', db_collections);
 //db('posts').push({ title: 'lowdb test'});
 
-require('./server/io')(server, db);
+require('./io')(server, db);
 
 console.log('server started on http://localhost:'+port);
