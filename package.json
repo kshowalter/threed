@@ -3,6 +3,14 @@
   "version": "",
   "author": "Keith Showalter",
   "description": "Fortress of solitude simulator",
+  "scripts": {
+    "nodemon": "nodemon server.js",
+    "webpack_serve": "webpack-dev-server --content-base public/ --inline --hot -d",
+    "webpack": "webpack --progress --colors --watch -d",
+    "watchify": "watchify main.js -o index.js -d -v",
+    "babelify": "watchify -t babelify main.js -o index.js -d -v",
+    "babel": "babel main.es6 --watch --out-file index.js --source-maps"
+  },
   "dependencies": {
     "lodash": "latest",
     "moment": "latest",
