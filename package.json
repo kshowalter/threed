@@ -6,8 +6,8 @@
   "description": "Test of three.js",
   "scripts": {
     "serve": "nodemon server/server.js",
-    "webpack_serve": "webpack-dev-server --content-base public/ --inline --hot -d",
     "webpack": "webpack --progress --colors --watch -d",
+    "webpack_serve": "webpack-dev-server --content-base public/ --inline --hot -d",
     "watchify": "watchify main.js -o index.js -d -v",
     "babelify": "watchify -t babelify main.js -o index.js -d -v",
     "babel": "babel main.es6 --watch --out-file index.js --source-maps"

@@ -1,58 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-  	<title>ThreeD test</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>ThreeD test</title>
 
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-		<link rel="stylesheet" href="style/normalize.css" />
-		<link rel="stylesheet" href="style/main.css" />
-
-
-	</head>
+  <link rel="stylesheet" href="style/normalize.css" />
+  <link rel="stylesheet" href="style/main.css" />
 
 
-  <body>
+</head>
 
 
-		<!--
-    <script src="lib/math.js"></script>
-    <script src="lib/FirstPersonControls.js"></script>
-    <script src="lib/PointerLockControls.js"></script>
-  	<script src="lib/underscore.js"></script>
-	  <script src="ace/ace.js" charset="utf-8"></script>
-		-->
-
-	  <script src="lib/openjscad/lightgl.js"></script>
-	  <script src="lib/openjscad/csg.js"></script>
-	  <script src="lib/openjscad/formats.js"></script>
-	  <script src="lib/openjscad/openjscad.js"></script>
-	  <script src="lib/openjscad/openscad.js"></script>
-	  <script src="lib/openjscad/openscad-openjscad-translator.js"></script>
-
-    <script src="lib/threejs/three.js"></script>
-    <script src="lib/threejs/Detector.js"></script>
-    <script src="lib/threejs/STLLoader.js"></script>
-
-    <script src="lib/ThreeCSG.js"></script>
-    <script src="lib/ThreeCSG_old.js"></script>
-
-		<script src="index.js"></script>
+<body>
 
 
+  <!--
+  <script src="lib/math.js"></script>
+  <script src="lib/FirstPersonControls.js"></script>
+  <script src="lib/PointerLockControls.js"></script>
+  <script src="lib/underscore.js"></script>
+  <script src="ace/ace.js" charset="utf-8"></script>
+-->
 
-		<script>
+<div id="content"></div>
 
-    	if ( ! Detector.webgl ) {
+<script src="lib/openjscad/lightgl.js"></script>
+<script src="lib/openjscad/csg.js"></script>
+<script src="lib/openjscad/formats.js"></script>
+<script src="lib/openjscad/openjscad.js"></script>
+<script src="lib/openjscad/openscad.js"></script>
+<script src="lib/openjscad/openscad-openjscad-translator.js"></script>
 
-    		Detector.addGetWebGLMessage();
-    		document.getElementById( 'container' ).innerHTML = "";
+<script src="lib/threejs/three.js"></script>
+<script src="lib/threejs/Detector.js"></script>
+<script src="lib/threejs/STLLoader.js"></script>
 
-    	}
+<script src="lib/ThreeCSG.js"></script>
+<script src="lib/ThreeCSG_old.js"></script>
 
-    </script>
+
+<script type="text/javascript" src="app.js"></script>
+
+<script>
+
+if ( ! Detector.webgl ) {
+
+  Detector.addGetWebGLMessage();
+  document.getElementById( 'container' ).innerHTML = "";
+
+}
+
+</script>
 
 
-  </body>
+</body>
 </html>
