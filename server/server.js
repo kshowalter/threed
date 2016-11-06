@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
 });
 */
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../public'));
 //app.listen(port); // server.listen or app.listen ???
 
 // Create HTTP server.
