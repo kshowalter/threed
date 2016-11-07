@@ -13,19 +13,13 @@
     "babel": "babel main.es6 --watch --out-file index.js --source-maps"
   },
   "dependencies": {
-    "lodash": "latest",
-    "moment": "latest",
-    "jquery": "latest",
     "brfs": "latest",
-    "three": "latest",
-    "math": "latest",
-    "seedrandom": "latest",
-
     "chance": "latest",
     "chart_maker": "git+https://github.com/kshowalter/chart_maker.git",
     "express": "latest",
     "freezer-js": "latest",
     "hash_router": "https://github.com/kshowalter/hash_router",
+    "jquery": "latest",
     "lodash": "^4.11.2",
     "lowdb": "latest",
     "math": "latest",
@@ -37,13 +31,16 @@
     "redux": "latest",
     "redux-logger": "latest",
     "redux-thunk": "latest",
+    "seedrandom": "latest",
     "simple_indexer": "git+https://github.com/kshowalter/simple_indexer.git",
     "socket.io": "latest",
     "socket.io-client": "latest",
     "specdom": "git+https://github.com/kshowalter/specdom.git",
     "specdom_helper": "git+https://github.com/kshowalter/specDOM_helper.git",
     "specdom_to_sgml": "git+https://github.com/kshowalter/specDOM_to_SGML.git",
-    "svgize": "git+https://github.com/kshowalter/svgize.git"
+    "svgize": "git+https://github.com/kshowalter/svgize.git",
+    "three": "latest",
+    "three-js-csg": "^72.0.0"
   },
   "devDependencies": {
     "babel-core": "6.1.21",

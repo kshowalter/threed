@@ -5,6 +5,7 @@ var seedrandom = require('seedrandom');
 window.perm = sessionStorage;
 
 var THREE = require('three');
+window.THREE = THREE;
 
 var g = {};
 window.g = g;
@@ -36,12 +37,8 @@ world.dice = seedrandom('phelow');
 console.log( world.dice() );
 
 
-
-
-
-var scene, camera, renderer, controls;
-var geometry, material, mesh;
-
+var scene;
+var renderer;
 
 //var test_model = Model();
 //console.log(test_model);
@@ -61,18 +58,19 @@ render();
 
 function init() {
 
-  var scene = new THREE.Scene();
-
-
-
+  scene = new THREE.Scene();
 
   var ship = Ship();
   scene.add(ship.model);
+
+  //var texture = new THREE.TextureLoader().load( 'textures/crate.gif' );
+  //var geometry = new THREE.BoxBufferGeometry( 200, 200, 200 );
+  //var material = new THREE.MeshBasicMaterial( { map: texture } );
+  //mesh = new THREE.Mesh( geometry, material );
+  //scene.add( mesh );
+
+
   world.avatars.add( 'ship', Avatar(ship.model) );
-
-
-
-
 
   var camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
   camera_observer.position.y = 20;
@@ -82,14 +80,14 @@ function init() {
   var pointerOne = new THREE.PointLight(0xffffff);
   pointerOne.position.set(100,90,130);
   scene.add( pointerOne );
-  var pointerOne = new THREE.PointLight(0xffffff);
-  pointerOne.position.set(-100,-90,-130);
-  scene.add( pointerOne );
+  var pointerTwo = new THREE.PointLight(0xffffff);
+  pointerTwo.position.set(-100,-90,-130);
+  scene.add( pointerTwo );
 
 
 
 
-  _.range(50).forEach(function(){
+  _.range(5).forEach(function(){
     var asteroid = Asteroid();
 
     asteroid.position.x = -200 + Math.ceil( world.dice() * 400 );
@@ -184,7 +182,7 @@ function init() {
 
 
 
-
+world
 
 
   //camera.rotation.order = "YXZ"; // CHANGED
@@ -219,7 +217,6 @@ function render() {
   requestAnimationFrame( render );
 
   world.avatars.get().update();
-
   renderer.render( scene, world.cameras.get() );
 
 }

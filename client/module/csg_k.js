@@ -14,7 +14,11 @@ var csg_k = {
       other_geometry = Array.prototype.slice.call(arguments).slice(1);
     }
 
-    var base_geometry2 = new ThreeBSP(base_geometry);
+    console.log(base_geometry);
+    var base_mesh = new THREE.Mesh(base_geometry);
+    console.log(base_mesh);
+
+    var base_geometry2 = new ThreeBSP(base_mesh);
     other_geometry.forEach(function(geometry){
       base_geometry.merge(geometry);
       geometry = new ThreeBSP(geometry);
@@ -45,9 +49,9 @@ var csg_k = {
       base_geometry = base_geometry.intersect(geometry);
     });
     return base_geometry.toGeometry();
-  },
+  }
 
 
-}
+};
 
 module.exports = csg_k;

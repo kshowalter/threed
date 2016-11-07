@@ -1,16 +1,17 @@
-
-
+var THREE = require('three');
+var csg_k  = require('./csg_k');
+var union = csg_k.union;
 var Ship = function(){
   var ship = {};
 
   var dim = {
     l1: 10,
     w1: 5,
-    h1: 5,
+    h1: 5
   };
 
   var hull_block1 = new THREE.CubeGeometry( 10, 5, 5 );
-  var hull_block2 = new THREE.CubeGeometry( 15, 10, 1 )
+  var hull_block2 = new THREE.CubeGeometry( 15, 10, 1 );
   //hull_block2.center(10,5,5);
 
   var strut5 = new THREE.CubeGeometry(5, 0.5, 0.5);
@@ -46,9 +47,10 @@ var Ship = function(){
   var ship_model = new THREE.Mesh( hull, material );
 
 
-
-
-
+  //var texture = new THREE.TextureLoader().load( 'textures/crate.gif' );
+  //var geometry = new THREE.BoxBufferGeometry( 200, 200, 200 );
+  //var material = new THREE.MeshBasicMaterial( { map: texture } );
+  //var mesh = new THREE.Mesh( geometry, material );
 
 
 
@@ -60,19 +62,6 @@ var Ship = function(){
   ship_model.add(camera);
 
   world.cameras.add('ship', camera);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   ship.model = ship_model;
