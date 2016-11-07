@@ -14,7 +14,7 @@ var csg_k = {
       other_geometry = Array.prototype.slice.call(arguments).slice(1);
     }
 
-    base_geometry2 = new ThreeBSP(base_geometry);
+    var base_geometry2 = new ThreeBSP(base_geometry);
     other_geometry.forEach(function(geometry){
       base_geometry.merge(geometry);
       geometry = new ThreeBSP(geometry);

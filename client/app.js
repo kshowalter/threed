@@ -4,6 +4,7 @@ var seedrandom = require('seedrandom');
 
 window.perm = sessionStorage;
 
+var THREE = require('three');
 
 var g = {};
 window.g = g;
@@ -26,7 +27,7 @@ window.subtract = csg_k.subtract;
 window.intersect = csg_k.intersect;
 
 
-window.world = World();
+var world = window.world = World();
 
 world.point = {};
 world.point.origin = new THREE.Vector3( 0, 0, 0 );
@@ -60,12 +61,12 @@ render();
 
 function init() {
 
-  scene = new THREE.Scene();
+  var scene = new THREE.Scene();
 
 
 
 
-  ship = Ship();
+  var ship = Ship();
   scene.add(ship.model);
   world.avatars.add( 'ship', Avatar(ship.model) );
 
@@ -73,7 +74,7 @@ function init() {
 
 
 
-  camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+  var camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
   camera_observer.position.y = 20;
   camera_observer.lookAt(world.point.origin);
   world.cameras.add('observer', camera_observer);
@@ -81,7 +82,7 @@ function init() {
   var pointerOne = new THREE.PointLight(0xffffff);
   pointerOne.position.set(100,90,130);
   scene.add( pointerOne );
-  pointerOne = new THREE.PointLight(0xffffff);
+  var pointerOne = new THREE.PointLight(0xffffff);
   pointerOne.position.set(-100,-90,-130);
   scene.add( pointerOne );
 

@@ -1,6 +1,6 @@
 
 
- var Ship = function(){
+var Ship = function(){
   var ship = {};
 
   var dim = {
@@ -11,7 +11,7 @@
 
   var hull_block1 = new THREE.CubeGeometry( 10, 5, 5 );
   var hull_block2 = new THREE.CubeGeometry( 15, 10, 1 )
-    //hull_block2.center(10,5,5);
+  //hull_block2.center(10,5,5);
 
   var strut5 = new THREE.CubeGeometry(5, 0.5, 0.5);
   var strut10 = new THREE.CubeGeometry(10, 0.5, 0.5);
@@ -52,7 +52,7 @@
 
 
 
-  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+  var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
   camera.position.z = 3.5;
   camera.position.x = 3;
   camera.lookAt( new THREE.Vector3(100,0,2) );

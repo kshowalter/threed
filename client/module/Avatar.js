@@ -16,11 +16,11 @@ var Avatar = function(model){
 
 
   //avatar_proto = Object.create(Actor());
-  avatar_proto = {};
+  var avatar_proto = {};
   avatar_proto.physics = Physics();
 
   avatar_proto.key = function(key_name, key_action){
-
+    var state;
     if( key_action === 'down') state = true;
     if( key_action === 'up')   state = false;
 
