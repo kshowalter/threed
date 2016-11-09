@@ -1,4 +1,4 @@
-var Asteroid = function(){
+var mkAsteroid = function(){
 
 
   var parts = [];
@@ -46,4 +46,4 @@ var Asteroid = function(){
 };
 
 
-module.exports = Asteroid;
+module.exports = mkAsteroid;

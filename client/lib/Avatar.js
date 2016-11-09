@@ -1,6 +1,6 @@
 //var Actor = require('./Actor');
-var Physics = require('./Physics');
-var Cycle = require('./Cycle');
+var Physics = require('../world/Physics');
+var Cycle = require('../lib/Cycle');
 
 var Avatar = function(model){
   var degrees = 90; //  degrees / second

@@ -1,5 +1,3 @@
-
-
 var Actor = function(threejs_part){
   var actor = {};
   actor.pys = Pys();
