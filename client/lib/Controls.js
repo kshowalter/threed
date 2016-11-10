@@ -46,8 +46,8 @@ var mk_controls = function(){
   control.init = function(world){
     var control_object = this;
     this.world = world;
-  	document.addEventListener( 'keydown', function(e){control_object.key_press(e,'down');} );
-  	document.addEventListener( 'keyup',   function(e){control_object.key_press(e,'up'  );} );
+    document.addEventListener( 'keydown', function(e){control_object.key_press(e,'down');} );
+    document.addEventListener( 'keyup',   function(e){control_object.key_press(e,'up'  );} );
 
   };
 

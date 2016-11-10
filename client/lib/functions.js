@@ -13,7 +13,7 @@ f.midpoint_2d = function(point_a, point_b){
 };
 
 f.rads = function(degrees){
-  return degrees*Math.PI*180;
+  return degrees*(Math.PI/180);
 };
 
 module.exports = f;
