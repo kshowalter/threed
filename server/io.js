@@ -10,7 +10,7 @@ module.exports = function(server, db){
       var userId = '';
       var filterObj;
 
-      console.log('-iAm-', givenUserId, user );
+      //console.log('-iAm-', givenUserId, user );
       // new user:                           ! givenUserId && ! user.id
       if( ! givenUserId && ! user ){
         userId = chance.hash({length: 10});
@@ -23,7 +23,7 @@ module.exports = function(server, db){
         filterObj = { userId: userId };
       }
 
-      console.log('connection', socket.id, 'is', userId);
+      //console.log('connection', socket.id, 'is', userId);
 
       socket.emit('youAre', userId);
 
@@ -37,7 +37,7 @@ module.exports = function(server, db){
 
 
     socket.on('test', function(input){
-      console.log('test: ', input);
+      //console.log('test: ', input);
       io.emit('server_says', 'test, your input is: ' + input);
     });
 
