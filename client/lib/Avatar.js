@@ -1,5 +1,5 @@
 //var Actor = require('./Actor');
-var Physics = require('./world/Physics');
+var Physics = require('../world/Physics');
 var Cycle = require('./Cycle');
 
 var Avatar = function(model){

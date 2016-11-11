@@ -1,5 +1,5 @@
-var Cycle = require('../Cycle');
-var Controls = require('../Controls');
+var Cycle = require('../lib/Cycle');
+var Controls = require('../lib/Controls');
 
 var World = function(){
   console.log('Creating a world');

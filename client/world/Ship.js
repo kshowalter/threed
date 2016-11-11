@@ -1,7 +1,7 @@
 var THREE = require('three');
-var csg_k  = require('../csg_k');
+var csg_k  = require('../../lib/csg_k');
 var union = csg_k.union;
-import f from '../functions';
+import f from '../../lib/functions';
 
 var Ship = function(scene){
   var ship = {};
