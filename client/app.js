@@ -7,21 +7,21 @@ var chance = Chance.Chance();
 
 var THREE = require('three');
 
-var camera_control = require('./lib/camera_control');
+var camera_control = require('../lib/camera_control');
 //var FirstPersonControls = require('./modules/FirstPersonControls');
 //THREE.FirstPersonControls = FirstPersonControls;
 
-//var Avatar = require('./lib/Avatar');
-//var Cycle = require('./lib/Cycle');
+//var Avatar = require('../lib/Avatar');
+//var Cycle = require('../lib/Cycle');
 
-var csg_k  = require('./lib/csg_k');
-var functions  = require('./lib/functions');
-var Avatar = require('./lib/Avatar');
+var csg_k  = require('../lib/csg_k');
+var functions  = require('../lib/functions');
+var Avatar = require('../lib/Avatar');
 
-var Ship  = require('./world/Ship');
-var World = require('./world/World');
+var Ship  = require('../lib/world/Ship');
+var World = require('../lib/world/World');
 
-var mkWorldModel = require('./model/mkWorldModel');
+var mkWorldModel = require('../lib/model/mkWorldModel');
 
 var g = {};
 window.g = g;
@@ -32,7 +32,7 @@ window.subtract = csg_k.subtract;
 window.intersect = csg_k.intersect;
 
 
-var socket = require('./lib/socket');
+var socket = require('../lib/socket');
 g.socket = socket;
 
 
@@ -59,6 +59,11 @@ var camera_observer = new THREE.PerspectiveCamera( 75, window.innerWidth / windo
 camera_observer.position.y = 20;
 camera_observer.lookAt(world.point.origin);
 world.cameras.add('observer', camera_observer);
+
+
+
+import sector from '../lib/model/sector';
+console.log(sector);
 
 scene = mkWorldModel(scene);
 
