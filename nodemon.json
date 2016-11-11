@@ -1,6 +1,7 @@
 {
   "ignore": ["db/*"],
   "watch": [
-    "server/*"
+    "server/*",
+    "lib/*"
   ]
 }
