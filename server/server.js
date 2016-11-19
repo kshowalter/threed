@@ -29,11 +29,21 @@ var db_collections = {
   users: []
 };
 
-var db = require('./db')('db', db_collections);
-//db('posts').push({ title: 'lowdb test'});
 
-require('./updateUniverse')(db);
+var initUniverse = {
+  objects: [],
+  sectors: []
+};
 
-require('./io')(server, db);
+var universe = require('./db')('universe', initUniverse);
+var test = require('./db')('test', db_collections);
+
+global.dbs = {
+  test: test,
+  universe: universe
+};
+
+
+require('./io')(server, global.dbs);
 
 console.log('server started on http://localhost:'+port);

@@ -75,6 +75,16 @@ document.body.appendChild( renderer.domElement );
 world.cameras.next();
 ////////
 
+setInterval(function(){
+  //console.log(world.avatars.get().location);
+  socket.emit('updateAvatar', {
+    userId: g.userId,
+    avatarId: 0,
+    location: world.avatars.get().location
+  });
+
+}, 1000);
+
 
 function render() {
   requestAnimationFrame( render );

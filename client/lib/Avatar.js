@@ -66,6 +66,9 @@ var Avatar = function(model){
 
   avatar_proto.update = function(){
 
+
+
+
     //if( this.move.rotate_up) this.model.rotation.x += rads;
     if(this.move.pitch_up) this.model.rotateY(+rads/2);
     //if(this.move.rotate_down) this.model.rotation.x += -rads;
@@ -83,6 +86,13 @@ var Avatar = function(model){
     if(this.move.right) this.model.translateY(-step);
     if(this.move.up) this.model.translateZ(step);
     if(this.move.down) this.model.translateZ(-step);
+
+    //console.log(this.model.position.x);
+    this.location = {
+      x: this.model.position.x,
+      y: this.model.position.y,
+      z: this.model.position.z
+    };
   };
 
   avatar_proto.set_model = function(model){
@@ -98,6 +108,12 @@ var Avatar = function(model){
 
   avatar.move = {};
   avatar.mode = Cycle(['ship', 'fly', 'walk']);
+
+  avatar.location = {
+    x: undefined,
+    y: undefined,
+    z: undefined
+  };
 
 
   return avatar;

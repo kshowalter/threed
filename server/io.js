@@ -1,12 +1,14 @@
 var chance = require('chance').Chance();
+var updateAvatar = require('./updateAvatar');
 
-module.exports = function(server, db){
+
+module.exports = function(server, dbs){
   var io = require('socket.io')(server);
   io.on('connection', function(socket){
     console.log('connection', socket.id);
 
     socket.on('iAm', function(givenUserId){
-      var user = db.get('users', {'userId': givenUserId})[0];
+      var user = dbs.test.get('users', {'userId': givenUserId})[0];
       var userId = '';
       var filterObj;
 
@@ -28,7 +30,7 @@ module.exports = function(server, db){
       socket.emit('youAre', userId);
 
 
-      db.set('users', {
+      dbs.test.set('users', {
         userId: userId,
         socetId: socket.id
       }, filterObj);
@@ -44,13 +46,13 @@ module.exports = function(server, db){
     socket.on('db_set', function(submitted){
       console.log('---db_set---');
 
-      var user = db.get('users', {'socetId': socket.id})[0];
+      var user = dbs.test.get('users', {'socetId': socket.id})[0];
 
       var doc = Object.assign({}, submitted.doc, {
         userId: user.userId
       });
       console.log('doc', doc);
-      db.set('testArray', doc);
+      dbs.test.set('testArray', doc);
 
 
     });
@@ -58,6 +60,16 @@ module.exports = function(server, db){
     socket.on('db_get', function(){
       console.log('test');
       io.emit('server_says', 'test');
+    });
+
+    socket.on('updateAvatar', function(update){
+      var user = dbs.test.get('users', {
+        socetId: socket.id
+      });
+
+      //console.log('user: ', socket.id, user[0].userId);
+
+      updateAvatar(update);
     });
 
 

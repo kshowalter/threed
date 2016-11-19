@@ -38,19 +38,19 @@ module.exports = function(dbName, defaults){
     },
     set: function(dbName, doc, filterObj ){
       filterObj = filterObj || false;
-      console.log('___db.set___', dbName, doc, filterObj );
+      //console.log('___db.set___', dbName, doc, filterObj );
       var results = lowdb.get(dbName)
         .filter(filterObj);
-      console.log(filterObj, results.value());
-      console.log('size', results.size().value());
+      //console.log(filterObj, results.value());
+      //console.log('size', results.size().value());
       if( results.size().value() ){
-        console.log('assign', doc);
+        //console.log('assign', doc);
         lowdb.get(dbName)
           .find(filterObj)
           .assign(doc)
           .value();
       } else {
-        console.log('pushing', doc);
+        //console.log('pushing', doc);
         lowdb.get(dbName)
           .push(doc)
           .value();

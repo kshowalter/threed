@@ -21,10 +21,12 @@ socket.on('connect', function(){
     }
 
     g.userId = userId;
+
     socket.on('server_says', function(msg){
       console.log('server_says', msg);
     });
 
+    /*
     //console.log('testing server communication');
     var number = chance.d20();
     //console.log('number:', number );
@@ -37,7 +39,8 @@ socket.on('connect', function(){
         number: number
       }
     });
+    */
+
   });
 });
-
-export default socket;
+module.exports = socket;
